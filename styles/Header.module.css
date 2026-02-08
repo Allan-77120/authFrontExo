@@ -1,0 +1,58 @@
+.header {
+  padding: 16px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Top bar */
+.headerTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  margin: 0;
+}
+
+.userSection {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* Modal */
+.modal {
+  margin-top: 16px;
+  padding: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  max-width: 420px;
+  display: grid;
+  gap: 16px;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.authBlock {
+  border: 1px solid #eee;
+  padding: 12px;
+}
+
+.input {
+  width: 100%;
+  margin-bottom: 8px;
+  padding: 8px;
+}
+
+.button {
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.closeButton {
+  cursor: pointer;
+}
