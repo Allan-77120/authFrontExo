@@ -14,28 +14,57 @@ export default function Header() {
   const [signInUsername, setSignInUsername] = useState("");
   const [signInPassword, setSignInPassword] = useState("");
 
-  // 🧠 À COMPLÉTER
+
   const handleRegister = () => {
-    // 1) appeler fetch vers /users/signup
-    // 2) method POST
-    // 3) headers + JSON.stringify
-    // 4) res.json()
-    // 5) si result === true :
-    // - dispatch(login(signUpUsername))
+  // console.log("REGISTER CLICKED");
+  // console.log(signUpUsername, signUpPassword);
+    fetch("http://localhost:3000/users/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username: signUpUsername,
+        password: signUpPassword,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.result === true) {
+          dispatch(login(signUpUsername));
+          setSignUpUsername("");
+          setSignUpPassword("");
+          setIsModalVisible(false);
+        }
+      });
+
     // - reset des champs signup
     // - fermer la modale
   };
 
   // 🧠 À COMPLÉTER
   const handleConnection = () => {
-    // 1) appeler fetch vers /users/signin
-    // 2) method POST
-    // 3) headers + JSON.stringify
-    // 4) res.json()
-    // 5) si result === true :
-    // - dispatch(login(signInUsername))
-    // - reset des champs signin
-    // - fermer la modale
+    fetch("http://localhost:3000/users/signin", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username: signInUsername,
+        password: signInPassword,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.result === true) {
+          dispatch(login(signInUsername));
+          setSignInUsername("");
+          setSignInPassword("");
+          setIsModalVisible(false);
+        }
+      });
+
+    
   };
 
   const handleLogout = () => {
